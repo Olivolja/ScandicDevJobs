@@ -1,0 +1,20 @@
+  <script lang="ts">
+    import Navbar from '$lib/Navbar.svelte';
+    import Map from '$lib/Map.svelte';
+    import JobSection from '$lib/JobSection.svelte';
+  </script>
+  
+  <div class="flex flex-col h-screen">
+    <Navbar />
+    <div class="flex flex-grow">
+      <!-- Left: Job Section (60% width) -->
+      <div class="w-3/5">
+        <JobSection />
+      </div>
+      <!-- Right: Map (40% width) -->
+      <div class="w-2/5 h-full">
+        <Map />
+      </div>
+    </div>
+  </div>
+  
