@@ -12,5 +12,8 @@
         public int SalaryRangeMax { get; set; }
         public User Owner { get; set; }
 
+        // Many-to-Many Relationship
+        //public List<Tag> Tags { get; set; }
+
     }
 }

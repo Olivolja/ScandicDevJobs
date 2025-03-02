@@ -11,6 +11,7 @@ namespace ScandicDevJobApi.Data
         public DbSet<JobListing> Joblistings { get; set; }
         public DbSet<User> Users { get; set; }
 
+
         // Add more DbSets for other models
     }
 }

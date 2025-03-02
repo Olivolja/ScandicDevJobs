@@ -1,6 +1,9 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-  
+    import type { Job } from '$lib/types/Job';
+    import { jobList, jobListLoading, jobListError, fetchJobs } from '$lib/stores/jobListingStore';
+
+
     /* --- Top Level Filters --- */
     let topFilters = [
       { id: 'Java',       label: 'Java',      icon: '☕' },
@@ -43,22 +46,14 @@
       activeCity = city;
       currentPage = 1;
     }
-  
+
+
+    
+
+    let josbs: Job[] = [];
+
     /* --- Dummy Job Listings Data --- */
-    interface Job {
-      id: number;
-      title: string;
-      city: string;
-      category: string;
-      description: string;
-      companyLogo: string;
-      salaryRange: string;
-      tags: string[];
-      filterJob: string[];
-      address: string;
-      lat: number;
-      lng: number;
-    }
+    
   
     let jobs: Job[] = [
       {
@@ -305,6 +300,10 @@
     }
   
     onMount(() => {
+      fetchJobs();
+      jobList.subscribe(value => {
+            jobs = value; // ✅ Sync store data with local variable
+        });
       recalcMaxJobs();
       window.addEventListener('resize', recalcMaxJobs);
       return () => window.removeEventListener('resize', recalcMaxJobs);

@@ -1,7 +1,7 @@
   <script lang="ts">
-    import Navbar from '$lib/Navbar.svelte';
-    import Map from '$lib/Map.svelte';
-    import JobSection from '$lib/JobSection.svelte';
+    import Navbar from '$lib/components/Navbar.svelte';
+    import Map from '$lib/components/Map.svelte';
+    import JobSection from '$lib/components/JobSection.svelte';
   </script>
   
   <div class="flex flex-col h-screen">
